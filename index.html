@@ -1,123 +1,105 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rebecca Parman CV</title>
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 40px; background:#fff; }
-    h1 { margin: 0 0 10px; }
-    p { margin: 0 0 24px; color:#666; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rebecca Parman CV</title>
 
-    h2 { margin-top: 32px; margin-bottom: 12px; }
+<style>
+body { font-family: system-ui, sans-serif; margin: 40px; background:#fff; }
+h1 { margin: 0 0 10px; }
+p { margin: 0 0 24px; color:#666; }
+h2 { margin-top: 32px; margin-bottom: 12px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
 
-    .card {
-      position: relative;
-      border: 1px solid #eee;
-      border-radius: 18px;
-      padding: 18px;
-      background: #fff;
-      cursor: pointer;
-      transition: transform .12s ease;
-      min-height: 150px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:12px;
-    }
-    .card:hover { transform: translateY(-2px); }
+.card {
+  position: relative;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 18px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .12s ease;
+  min-height: 150px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:12px;
+}
+.card:hover { transform: translateY(-2px); }
 
-    .card img {
-      width: 100%;
-      height: 70px;
-      object-fit: contain;
-      display:block;
-    }
+.card img {
+  width: 100%;
+  height: 70px;
+  object-fit: contain;
+}
 
-    .label {
-      font-size: 14px;
-      font-weight: 700;
-      color:#111;
-      text-align:center;
-    }
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  text-align:center;
+}
 
-    .tooltip {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      background: rgba(0,0,0,.85);
-      color: #fff;
-      padding: 10px;
-      border-radius: 12px;
-      font-size: 13px;
-      display: none;
-    }
-    .card:hover .tooltip { display: block; }
+.tooltip {
+  position:absolute;
+  left:12px; right:12px; bottom:12px;
+  background:rgba(0,0,0,.85);
+  color:#fff;
+  padding:10px;
+  border-radius:12px;
+  font-size:13px;
+  display:none;
+}
+.card:hover .tooltip { display:block; }
 
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 10;
-    }
-    .modal-content {
-      background: #fff;
-      max-width: 720px;
-      width: 100%;
-      border-radius: 18px;
-      padding: 18px;
-    }
-    .modal-header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px; margin-bottom:10px;
-    }
-    .close {
-      border: 0; background: #f3f3f3; border-radius: 10px;
-      padding: 6px 10px; cursor: pointer;
-      font-size: 14px;
-    }
-    .modal-logo { width: 140px; height: 70px; object-fit: contain; }
-    .muted { color:#666; font-size:14px; line-height:1.5; }
+.modal {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.modal-content {
+  background:#fff;
+  max-width:720px;
+  width:100%;
+  border-radius:18px;
+  padding:18px;
+}
+.close { padding:6px 10px; }
+.modal-logo { width:140px; height:70px; object-fit:contain; }
 
-    .topbar {
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom: 18px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #eee;
-    }
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:18px;
+  padding-bottom:18px;
+  border-bottom:1px solid #eee;
+}
 
-    .chip {
-      display:inline-block;
-      border: 1px solid #eee;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color:#444;
-    }
-  </style>
+.chip {
+  border:1px solid #eee;
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+</style>
 </head>
+
 <body>
 
 <div class="topbar">
-  <div>
-    <h1>Rebecca Parman CV</h1>
-    <p>Tryck på en logga för att läsa mer.</p>
-  </div>
-  <div class="chip">Hover = snabbinfo • Klick = mer info</div>
+<div>
+<h1>Rebecca Parman CV</h1>
+<p>Tryck på en logga för att läsa mer.</p>
+</div>
+<div class="chip">Hover = snabbinfo • Klick = mer info</div>
 </div>
 
 <h2>Utbildning</h2>
@@ -129,134 +111,85 @@
 <h2>Tidigare anställare</h2>
 <div class="grid" id="gridWork"></div>
 
-<!-- Modal -->
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <img id="modalLogo" class="modal-logo" alt="">
-        <div>
-          <div id="modalTitle" style="font-weight:700;"></div>
-          <div id="modalSub" class="muted"></div>
-        </div>
-      </div>
-      <button class="close" id="closeBtn">Stäng</button>
-    </div>
-    <div id="modalBody" class="muted"></div>
-  </div>
+<div class="modal-content">
+<img id="modalLogo" class="modal-logo">
+<div id="modalTitle"></div>
+<div id="modalBody"></div>
+<button class="close" id="closeBtn">Stäng</button>
+</div>
 </div>
 
 <script>
-  // ✅ UTBILDNING
-  const educationItems = [
-    { title:"KTH", sub:"Arkitektutbildning", img:"KTH_logo_RGB_vit-scaled.jpg", hover:"VT 2024 – nu", body:"Arkitektutbildning på Kungliga Tekniska Högskolan. (VT 2024 – nu)" },
-    { title:"SMI", sub:"Skapande dans 1", img:"images.png", hover:"VT 2021", body:"Dans och koreografikurs på Stockholms Musikaliska Institut. (VT 2021)" },
-    { title:"Kulturama", sub:"Dansutbildning", img:"kulturama_logo.jpg", hover:"HT 2018", body:"Yrkeshögskoleutbildning i dans på Kulturama, Medborgarskolan. (HT 2018)" },
-    { title:"Södertörns högskola", sub:"Genus / Våld i nära relationer", img:"images (1).jpg", hover:"2017–2018 (37,5 hp)", body:"37,5 hp via Södertörns Högskola, Mittuniversitetet, internutbildning inom Stockholms Stad, samt Haninge kvinnojour. (2017–2018)" },
-    { title:"Härnösands folkhögskola", sub:"Fred, Ickevåld, Ledarskap", img:"Harnosands-folkhogskola.png", hover:"2015–2016", body:"Kurs på halvtid, inklusive studieresa till Palestina i tre veckor. (2015–2016)" },
-    { title:"Glokala folkhögskolan", sub:"Socialt entreprenörskap", img:"1903-logo-glokala-mini.jpg", hover:"2015–2016", body:"Kurs på halvtid. Inkl. högskolekurs: Introduktion till projektledning, Malmö Högskola (VT 2016)." },
-    { title:"Malmö universitet", sub:"Universitet", img:"logotyp-p-l.png", hover:"Malmö universitet", body:"Beskrivning kommer." },
-    { title:"Malmö högskola", sub:"Introduktion till projektledning", img:"1903-logo-glokala-mini.jpg", hover:"VT 2016 (7,5 hp)", body:"Introduktion till projektledning. 7,5 hp. (VT 2016)" },
-    { title:"Stockholms universitet", sub:"Programmering", img:"Stockholms-Universitet.webp", hover:"Sommaren 2015 (3 hp)", body:"Programmering och datalogiskt tänkande. 3 hp. (Sommaren 2015)" },
-    { title:"Högskolan Dalarna", sub:"Högskola", img:"hd_vertikal_rgb.png", hover:"Högskolan Dalarna", body:"Beskrivning kommer." },
-    { title:"Mittuniversitetet", sub:"Universitet", img:"images (2).png", hover:"Mittuniversitetet", body:"Beskrivning kommer." },
-    { title:"Luleå tekniska universitet", sub:"Universitet", img:"channels4_profile.jpg", hover:"Luleå tekniska universitet", body:"Beskrivning kommer." },
-    { title:"Lunds universitet", sub:"Universitet", img:"Logotyp_Lunds_universitet_(vit).png", hover:"Lunds universitet", body:"Beskrivning kommer." }
-  ];
 
-  // ✅ PROGRAM & VERKTYG
-  const toolItems = [
-    { title: "Spyder", sub: "Python IDE", img: "images (5).png", hover: "Spyder", body: "Beskrivning kommer." },
-    { title: "HTML", sub: "Webb", img: "images (4).png", hover: "HTML", body: "Beskrivning kommer." },
-    { title: "Python", sub: "Programmering", img: "Python-logo-notext.svg.png", hover: "Python", body: "Beskrivning kommer." },
-    { title: "CapCut", sub: "Video", img: "image (1).png", hover: "CapCut", body: "Beskrivning kommer." },
-    { title: "Shotcut", sub: "Video", img: "shotcut-logo-640x640.png", hover: "Shotcut", body: "Beskrivning kommer." },
+const educationItems = [
+{title:"KTH",img:"images/KTH_logo_RGB_vit-scaled.jpg"},
+{title:"SMI",img:"images/images.png"},
+{title:"Kulturama",img:"images/kulturama_logo.jpg"},
+{title:"Södertörns högskola",img:"images/images (1).jpg"},
+{title:"Härnösands folkhögskola",img:"images/Harnosands-folkhogskola.png"},
+{title:"Glokala folkhögskolan",img:"images/1903-logo-glokala-mini.jpg"},
+{title:"Malmö universitet",img:"images/logotyp-p-l.png"},
+{title:"Malmö högskola",img:"images/1903-logo-glokala-mini.jpg"},
+{title:"Stockholms universitet",img:"images/Stockholms-Universitet.webp"},
+{title:"Högskolan Dalarna",img:"images/hd_vertikal_rgb.png"},
+{title:"Mittuniversitetet",img:"images/images (2).png"},
+{title:"Luleå tekniska universitet",img:"images/channels4_profile.jpg"},
+{title:"Lunds universitet",img:"images/Logotyp_Lunds_universitet_(vit).png"}
+];
 
-    { title: "Adobe Illustrator", sub: "Grafik", img: "adobe-illustrator-logo-free-vector.jpg", hover: "Illustrator", body: "Beskrivning kommer." },
-    { title: "Adobe Photoshop", sub: "Bild", img: "image.png", hover: "Photoshop", body: "Beskrivning kommer." },
-    { title: "Adobe InDesign", sub: "Layout", img: "Id.png", hover: "InDesign", body: "Beskrivning kommer." },
-    { title: "Adobe After Effects", sub: "Video/FX", img: "Adobe_After_Effects_CC_2026_icon.svg.png", hover: "After Effects", body: "Beskrivning kommer." },
+const toolItems = [
+{title:"Spyder",img:"images/images (5).png"},
+{title:"HTML",img:"images/images (4).png"},
+{title:"Python",img:"images/Python-logo-notext.svg.png"},
+{title:"CapCut",img:"images/image (1).png"},
+{title:"Shotcut",img:"images/shotcut-logo-640x640.png"},
+{title:"Adobe Illustrator",img:"images/adobe-illustrator-logo-free-vector.jpg"},
+{title:"Adobe Photoshop",img:"images/image.png"},
+{title:"Adobe InDesign",img:"images/Id.png"},
+{title:"Adobe After Effects",img:"images/Adobe_After_Effects_CC_2026_icon.svg.png"},
+{title:"Affinity Photo",img:"images/Affinity_Photo_icon.png"},
+{title:"Affinity Designer",img:"images/Affinity_Designer_V2_icon.svg.png"},
+{title:"Affinity Publisher",img:"images/Affinity_Publisher_V2_icon.svg.png"},
+{title:"AutoCAD",img:"images/unnamed.png"},
+{title:"Revit",img:"images/revit-2023-badge-400x400-1.png"},
+{title:"Rhino",img:"images/images (2).jpg"},
+{title:"Blender",img:"images/blender_logo_socket.png"},
+{title:"Twinmotion",img:"images/Twinmotion_Logo_Vertical_Black.webp"},
+{title:"TVPaint",img:"images/images (3).jpg"},
+{title:"Canva",img:"images/0x0.png"},
+{title:"PowerPoint",img:"images/Microsoft_Office_PowerPoint_(2019–2025).svg.png"},
+{title:"Word",img:"images/Microsoft_Office_Word_(2019–2025).svg.png"}
+];
 
-    { title: "Affinity Photo", sub: "Bild", img: "Affinity_Photo_icon.png", hover: "Affinity Photo", body: "Beskrivning kommer." },
-    { title: "Affinity Designer", sub: "Grafik", img: "Affinity_Designer_V2_icon.svg.png", hover: "Affinity Designer", body: "Beskrivning kommer." },
-    { title: "Affinity Publisher", sub: "Layout", img: "Affinity_Publisher_V2_icon.svg.png", hover: "Affinity Publisher", body: "Beskrivning kommer." },
+const workItems = [
+{title:"Folkoperan",img:"images/display-image.png"},
+{title:"SVT",img:"images/7Bf-kNum.jpg"},
+{title:"Sveriges Radio",img:"images/d2067298-a21f-45da-b6bb-695f951dfd0a.jpg"},
+{title:"Stockholms stad",img:"images/Stockholm_logo.png"},
+{title:"Svenska kyrkan",img:"images/Svenska-kyrkan-1.png"},
+{title:"Plantagen",img:"images/plantagen_logo_800x800.jpg"},
+{title:"Systembolaget",img:"images/systembolaget_logo.jpg"},
+{title:"Silvosa",img:"images/silvosa_hermanos_sl_logo.jpg"},
+{title:"Atos",img:"images/New-Atos-logo-blue-RGB.jpg"},
+{title:"SBIF",img:"images/SBIF_1.png"},
+{title:"Hjärtat",img:"images/Hjarta-Lila-300x220.png"}
+];
 
-    { title: "AutoCAD", sub: "CAD", img: "unnamed.png", hover: "AutoCAD", body: "Beskrivning kommer." },
-    { title: "Revit", sub: "BIM", img: "revit-2023-badge-400x400-1.png", hover: "Revit", body: "Beskrivning kommer." },
-    { title: "Rhino", sub: "3D", img: "images (2).jpg", hover: "Rhino", body: "Beskrivning kommer." },
+function render(items,id){
+const g=document.getElementById(id);
+items.forEach(i=>{
+let d=document.createElement("div");
+d.className="card";
+d.innerHTML=`<img src="${i.img}"><div class="label">${i.title}</div>`;
+g.appendChild(d);
+});
+}
 
-    { title: "Blender", sub: "3D", img: "blender_logo_socket.png", hover: "Blender", body: "Beskrivning kommer." },
-    { title: "Twinmotion", sub: "3D / Rendering", img: "Twinmotion_Logo_Vertical_Black.webp", hover: "Twinmotion", body: "Beskrivning kommer." },
+render(educationItems,"gridEducation");
+render(toolItems,"gridTools");
+render(workItems,"gridWork");
 
-    { title: "TVPaint", sub: "Animation", img: "images (3).jpg", hover: "TVPaint", body: "Beskrivning kommer." },
-    { title: "Canva", sub: "Design", img: "0x0.png", hover: "Canva", body: "Beskrivning kommer." },
-
-    { title: "Microsoft PowerPoint", sub: "Presentation", img: "Microsoft_Office_PowerPoint_(2019–2025).svg.png", hover: "PowerPoint", body: "Beskrivning kommer." },
-    { title: "Microsoft Word", sub: "Text", img: "Microsoft_Office_Word_(2019–2025).svg.png", hover: "Word", body: "Beskrivning kommer." }
-  ];
-
-  // ✅ TIDIGARE ANSTÄLLARE
-  const workItems = [
-    { title: "Folkoperan", sub: "Arbetsgivare", img: "display-image.png", hover: "Folkoperan", body: "Beskrivning kommer." },
-    { title: "SVT", sub: "Arbetsgivare", img: "7Bf-kNum.jpg", hover: "SVT", body: "Beskrivning kommer." },
-    { title: "Sveriges Radio", sub: "Arbetsgivare", img: "d2067298-a21f-45da-b6bb-695f951dfd0a.jpg", hover: "Sveriges Radio", body: "Beskrivning kommer." },
-
-    { title: "Stockholms stad", sub: "Arbetsgivare", img: "Stockholm_logo.png", hover: "Stockholms stad", body: "Beskrivning kommer." },
-    { title: "Svenska kyrkan", sub: "Arbetsgivare", img: "Svenska-kyrkan-1.png", hover: "Svenska kyrkan", body: "Beskrivning kommer." },
-    { title: "Plantagen", sub: "Arbetsgivare", img: "plantagen_logo_800x800.jpg", hover: "Plantagen", body: "Beskrivning kommer." },
-    { title: "Systembolaget", sub: "Arbetsgivare", img: "systembolaget_logo.jpg", hover: "Systembolaget", body: "Beskrivning kommer." },
-    { title: "Silvosa", sub: "Arbetsgivare", img: "silvosa_hermanos_sl_logo.jpg", hover: "Silvosa", body: "Beskrivning kommer." },
-    { title: "Atos", sub: "Arbetsgivare", img: "New-Atos-logo-blue-RGB.jpg", hover: "Atos", body: "Beskrivning kommer." },
-
-    { title: "SBIF", sub: "Arbetsgivare", img: "SBIF_1.png", hover: "SBIF", body: "Beskrivning kommer." },
-    { title: "Hjärtat", sub: "Arbetsgivare", img: "Hjarta-Lila-300x220.png", hover: "Hjärtat", body: "Beskrivning kommer." }
-  ];
-
-  // ---- modal ----
-  const modal = document.getElementById("modal");
-  const closeBtn = document.getElementById("closeBtn");
-  const modalLogo = document.getElementById("modalLogo");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalSub = document.getElementById("modalSub");
-  const modalBody = document.getElementById("modalBody");
-
-  function openModal(item){
-    modalLogo.src = item.img;
-    modalLogo.alt = item.title;
-    modalTitle.textContent = item.title;
-    modalSub.textContent = item.sub || "";
-    modalBody.textContent = item.body || "";
-    modal.style.display = "flex";
-  }
-  function closeModal(){
-    modal.style.display = "none";
-  }
-
-  function renderGrid(items, gridId){
-    const grid = document.getElementById(gridId);
-    items.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <<img src="images/${item.img}" alt="${item.title}">
-        <div class="label">${item.title}</div>
-        <div class="tooltip">${item.hover || ""}</div>
-      `;
-      card.addEventListener("click", () => openModal(item));
-      grid.appendChild(card);
-    });
-  }
-
-  renderGrid(educationItems, "gridEducation");
-  renderGrid(toolItems, "gridTools");
-  renderGrid(workItems, "gridWork");
-
-  closeBtn.addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 </script>
-
 </body>
 </html>
-
-
