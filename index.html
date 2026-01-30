@@ -64,6 +64,7 @@ h2 { margin-top: 32px; margin-bottom: 12px; }
   display:none;
   align-items:center;
   justify-content:center;
+  padding:20px;
 }
 .modal-content {
   background:#fff;
@@ -72,7 +73,6 @@ h2 { margin-top: 32px; margin-bottom: 12px; }
   border-radius:18px;
   padding:18px;
 }
-.close { padding:6px 10px; }
 .modal-logo { width:140px; height:70px; object-fit:contain; }
 
 .topbar {
@@ -113,75 +113,61 @@ h2 { margin-top: 32px; margin-bottom: 12px; }
 
 <div class="modal" id="modal">
 <div class="modal-content">
+<div style="display:flex;gap:12px;">
 <img id="modalLogo" class="modal-logo">
-<div id="modalTitle"></div>
+<div>
+<div id="modalTitle" style="font-weight:700;"></div>
+<div id="modalSub"></div>
+</div>
+</div>
 <div id="modalBody"></div>
-<button class="close" id="closeBtn">Stäng</button>
+<button onclick="closeModal()">Stäng</button>
 </div>
 </div>
 
 <script>
 
 const educationItems = [
-{title:"KTH",img:"images/KTH_logo_RGB_vit-scaled.jpg"},
-{title:"SMI",img:"images/images.png"},
-{title:"Kulturama",img:"images/kulturama_logo.jpg"},
-{title:"Södertörns högskola",img:"images/images (1).jpg"},
-{title:"Härnösands folkhögskola",img:"images/Harnosands-folkhogskola.png"},
-{title:"Glokala folkhögskolan",img:"images/1903-logo-glokala-mini.jpg"},
-{title:"Malmö universitet",img:"images/logotyp-p-l.png"},
-{title:"Malmö högskola",img:"images/1903-logo-glokala-mini.jpg"},
-{title:"Stockholms universitet",img:"images/Stockholms-Universitet.webp"},
-{title:"Högskolan Dalarna",img:"images/hd_vertikal_rgb.png"},
-{title:"Mittuniversitetet",img:"images/images (2).png"},
-{title:"Luleå tekniska universitet",img:"images/channels4_profile.jpg"},
-{title:"Lunds universitet",img:"images/Logotyp_Lunds_universitet_(vit).png"}
+{ title:"KTH", sub:"Arkitektutbildning", img:"images/KTH_logo_RGB_vit-scaled.jpg", hover:"VT 2024 – nu", body:"Arkitektutbildning på KTH."},
+{ title:"SMI", sub:"Skapande dans", img:"images/images.png", hover:"VT 2021", body:"Danskurs."},
+{ title:"Kulturama", sub:"Dans", img:"images/kulturama_logo.jpg", hover:"HT 2018", body:"Dansutbildning."}
 ];
 
 const toolItems = [
-{title:"Spyder",img:"images/images (5).png"},
-{title:"HTML",img:"images/images (4).png"},
-{title:"Python",img:"images/Python-logo-notext.svg.png"},
-{title:"CapCut",img:"images/image (1).png"},
-{title:"Shotcut",img:"images/shotcut-logo-640x640.png"},
-{title:"Adobe Illustrator",img:"images/adobe-illustrator-logo-free-vector.jpg"},
-{title:"Adobe Photoshop",img:"images/image.png"},
-{title:"Adobe InDesign",img:"images/Id.png"},
-{title:"Adobe After Effects",img:"images/Adobe_After_Effects_CC_2026_icon.svg.png"},
-{title:"Affinity Photo",img:"images/Affinity_Photo_icon.png"},
-{title:"Affinity Designer",img:"images/Affinity_Designer_V2_icon.svg.png"},
-{title:"Affinity Publisher",img:"images/Affinity_Publisher_V2_icon.svg.png"},
-{title:"AutoCAD",img:"images/unnamed.png"},
-{title:"Revit",img:"images/revit-2023-badge-400x400-1.png"},
-{title:"Rhino",img:"images/images (2).jpg"},
-{title:"Blender",img:"images/blender_logo_socket.png"},
-{title:"Twinmotion",img:"images/Twinmotion_Logo_Vertical_Black.webp"},
-{title:"TVPaint",img:"images/images (3).jpg"},
-{title:"Canva",img:"images/0x0.png"},
-{title:"PowerPoint",img:"images/Microsoft_Office_PowerPoint_(2019–2025).svg.png"},
-{title:"Word",img:"images/Microsoft_Office_Word_(2019–2025).svg.png"}
+{ title:"Python", sub:"Programmering", img:"images/Python-logo-notext.svg.png", hover:"Python", body:"Programmering."},
+{ title:"Photoshop", sub:"Bild", img:"images/image.png", hover:"Photoshop", body:"Bildredigering."}
 ];
 
 const workItems = [
-{title:"Folkoperan",img:"images/display-image.png"},
-{title:"SVT",img:"images/7Bf-kNum.jpg"},
-{title:"Sveriges Radio",img:"images/d2067298-a21f-45da-b6bb-695f951dfd0a.jpg"},
-{title:"Stockholms stad",img:"images/Stockholm_logo.png"},
-{title:"Svenska kyrkan",img:"images/Svenska-kyrkan-1.png"},
-{title:"Plantagen",img:"images/plantagen_logo_800x800.jpg"},
-{title:"Systembolaget",img:"images/systembolaget_logo.jpg"},
-{title:"Silvosa",img:"images/silvosa_hermanos_sl_logo.jpg"},
-{title:"Atos",img:"images/New-Atos-logo-blue-RGB.jpg"},
-{title:"SBIF",img:"images/SBIF_1.png"},
-{title:"Hjärtat",img:"images/Hjarta-Lila-300x220.png"}
+{ title:"SVT", sub:"Arbetsgivare", img:"images/7Bf-kNum.jpg", hover:"SVT", body:"TV."}
 ];
+
+const modal=document.getElementById("modal");
+const modalLogo=document.getElementById("modalLogo");
+const modalTitle=document.getElementById("modalTitle");
+const modalSub=document.getElementById("modalSub");
+const modalBody=document.getElementById("modalBody");
+
+function openModal(i){
+modalLogo.src=i.img;
+modalTitle.textContent=i.title;
+modalSub.textContent=i.sub;
+modalBody.textContent=i.body;
+modal.style.display="flex";
+}
+
+function closeModal(){ modal.style.display="none"; }
 
 function render(items,id){
 const g=document.getElementById(id);
 items.forEach(i=>{
 let d=document.createElement("div");
 d.className="card";
-d.innerHTML=`<img src="${i.img}"><div class="label">${i.title}</div>`;
+d.innerHTML=`
+<img src="${i.img}">
+<div class="label">${i.title}</div>
+<div class="tooltip">${i.hover||""}</div>`;
+d.onclick=()=>openModal(i);
 g.appendChild(d);
 });
 }
