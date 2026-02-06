@@ -112,13 +112,21 @@
 </head>
 <body>
 
+
+
+
 <div class="topbar">
   <div>
     <h1>Rebecca Parman CV</h1>
     <p></p>
   </div>
-  <div class="chip">Hover = snabbinfo • Klick = mer info</div>
+
+  <div style="display:flex; gap:10px; align-items:center;">
+    <button class="close" onclick="showDownload()">Ladda ner CV</button>
+    <div class="chip">Hover = snabbinfo • Klick = mer info</div>
+  </div>
 </div>
+
 
 <h2>Utbildning</h2>
 <div class="grid" id="gridEducation"></div>
@@ -145,6 +153,29 @@
     <div id="modalBody" class="muted"></div>
   </div>
 </div>
+
+
+
+<!-- Download Modal -->
+<div class="modal" id="downloadModal">
+  <div class="modal-content" style="text-align:center;">
+    <h2>Ladda ner CV</h2>
+    <p class="muted">Välj vilket format du vill ladda ner.</p>
+
+    <div style="display:flex; gap:16px; justify-content:center; margin-top:20px;">
+      <a href="Filer/Rebecca Parman CV 2026.pdf" download class="close">
+        📄 Ladda ner PDF
+      </a>
+
+      <a href="Filer/Rebecca Parman CV 2026.docx" download class="close">
+        📝 Ladda ner Word
+      </a>
+    </div>
+
+    <button class="close" style="margin-top:20px;" onclick="closeDownload()">Stäng</button>
+  </div>
+</div>
+
 
 <script>
   // ✅ UTBILDNING
@@ -253,11 +284,28 @@ const workItems = [
   closeBtn.addEventListener("click", closeModal);
   modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
   window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+
+const downloadModal = document.getElementById("downloadModal");
+
+function showDownload(){
+  downloadModal.style.display = "flex";
+}
+
+function closeDownload(){
+  downloadModal.style.display = "none";
+}
+
+downloadModal.addEventListener("click", (e) => {
+  if (e.target === downloadModal) closeDownload();
+});
+
+
+
 </script>
 
 </body>
 </html>
-
 
 
 
