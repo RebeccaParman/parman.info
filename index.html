@@ -285,7 +285,6 @@ const workItems = [
   const modalBody = document.getElementById("modalBody");
 
   function openModal(item){
-    modalLogo.src = item.img;
     modalLogo.alt = item.title;
     modalTitle.textContent = item.title;
     modalSub.textContent = item.sub || "";
@@ -340,6 +339,7 @@ downloadModal.addEventListener("click", (e) => {
 
 </body>
 </html>
+
 
 
 
