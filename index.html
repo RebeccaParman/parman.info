@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rebecca Parman CV</title>
   <style>
-    body { font-family: system-ui, sans-serif; margin: 40px; background: linear-gradient(to bottom, #f3f8ff, #C2D8FF); /* ljusblå */; }
+    body { font-family: system-ui, sans-serif; margin: 40px; background: linear-gradient(to bottom, #f3f8ff, #C2D8FF); }
     h1 { margin: 0 0 10px; }
     p { margin: 0 0 24px; color:#666; }
 
@@ -101,8 +101,6 @@
       transform: translateY(-1px);
     }
 
-    }
-
     .modal-logo { width: 140px; height: 70px; object-fit: contain; }
     .muted { color:#666; font-size:14px; line-height:1.5; }
 
@@ -146,38 +144,22 @@
 </head>
 <body>
 
-
-
-
 <div class="topbar">
   <div>
     <h1>Rebecca Parman CV</h1>
-
   </div>
   
   <div style="display:flex; gap:10px; align-items:center;">
     <a class="download-btn" onclick="showDownload()">Ladda ned CV</a>
     <a class="download-btn" onclick="showContact()">Kontakt</a>
   </div>
-
 </div>
-
-
-<h2>Utbildning</h2>
-<div class="grid" id="gridEducation"></div>
-
-<h2>Program & verktyg</h2>
-<div class="grid" id="gridTools"></div>
-
-<h2>Tidigare anställare</h2>
-<div class="grid" id="gridWork"></div>
 
 <!-- Modal -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="modal-header">
       <div style="display:flex;align-items:center;gap:12px;">
-  
         <div>
           <div id="modalTitle" style="font-weight:700;"></div>
           <div id="modalSub" class="muted"></div>
@@ -188,8 +170,6 @@
     <div id="modalBody" class="muted"></div>
   </div>
 </div>
-
-
 
 <!-- Download Modal -->
 <div class="modal" id="downloadModal">
@@ -205,8 +185,12 @@
         📝 Ladda ned Word
       </a>
     </div>
+    <!-- FIX -->
+    <button class="close" onclick="closeDownload()">Stäng</button>
+  </div>
+</div>
 
-    <!-- Contact Modal -->
+<!-- Contact Modal -->
 <div class="modal" id="contactModal">
   <div class="modal-content" style="text-align:center;">
     <h2>Kontakt</h2>
@@ -216,122 +200,12 @@
       📍 Stockholm, Sverige
     </p>
 
-    <button class="close" onclick="closeContact()">Stäng</button>
+    <!-- FIX -->
+    <button class="close" style="margin-top:20px;" onclick="closeContact()">Stäng</button>
   </div>
 </div>
-
-
-    <button class="close" style="margin-top:20px;" onclick="closeDownload()">Stäng</button>
-  </div>
-</div>
-
 
 <script>
-  // ✅ UTBILDNING
-const educationItems = [
-{ title:" ", sub:"Arkitektutbildning", img:"images/KTH_logo_RGB_vit-scaled.jpg", hover:"VT 2024 – nu", body:"Arkitektutbildning på Kungliga Tekniska Högskolan. (VT 2024 – nu)" },
-{ title:" ", sub:"Universitet", img:"images/channels4_profile.jpg", hover:"Sommaren 2024", body:"Introduktion till matematisk modellering och databehandling i Python." },
-{ title:" ", sub:"Universitet", img:"images/Logotyp_Lunds_universitet_(vit).png", hover:"Sommaren 2024", body:"Numerisk analys: Beräkningsprogrammering med Python." },
-{ title:" ", sub:"Skapande dans 1", img:"images/images.png", hover:"VT 2021", body:"Dans och koreografikurs på Stockholms Musikpedagogiska Institut. (VT 2021)" },
-{ title:" ", sub:"Dansutbildning", img:"images/kulturama_logo.jpg", hover:"2018-2019", body:"Yrkeshögskoleutbildning i dans på Kulturama, Medborgarskolan. (2018-2019)" },
-{ title:" ", sub:"Universitet", img:"images/images (2).png", hover:"VT 2018", body:"Folkhälsovetenskap GR (A), Våld i nära relationer." },
-{ title:" ", sub:"Genus / Våld i nära relationer", img:"images/images (6).png", hover:"2017–2018", body:"Södertörns Högskola, Mittuniversitetet, internutbildning inom Stockholms Stad, samt Haninge kvinnojour. (2017–2018)" },
-{ title:" ", sub:"Högskola", img:"images/hd_vertikal_rgb.png", hover:"2016-2017", body:"Spanska grundläggande kurs." },
-{ title:" ", sub:"Fred, Ickevåld, Ledarskap", img:"images/Harnosands-folkhogskola.png", hover:"2015–2016", body:"Kurs på halvtid, inklusive studieresa till Palestina i tre veckor. (2015–2016)" },
-{ title:"  ", sub:"Socialt entreprenörskap", img:"images/1903-logo-glokala-mini.jpg", hover:"2015–2016", body:"Kurs på halvtid. Inkl. högskolekurs: Introduktion till projektledning, Malmö Högskola (VT 2016)." },
-{ title:" ", sub:"Introduktion till projektledning", img:"images/images (1).png", hover:"VT 2016", body:"Introduktion till projektledning. (VT 2016)" },
-{ title:" ", sub:"Programmering", img:"images/Stockholms-Universitet.webp", hover:"2015, 2024", body:"Spanska I, Finska IA, Finska IB, Att möta barn och ungdomar i svåra livssituationer " }
-];
-
-const toolItems = [
-{ title:"AutoCAD", sub:"CAD", img:"images/unnamed.png", hover:"AutoCAD", body:"Stor erfarenhet av AutoCAD." },
-{ title:"Revit", sub:"BIM", img:"images/revit-2023-badge-400x400-1.png", hover:"Revit", body:"Jag började lära mig Revit cirka tio år sen men är i processen av att upppdatera mig kring det senaste inom programmet." },
-{ title:" ", sub:"3D", img:"images/images (2).jpg", hover:"Rhinoceros 8", body:"Stor erfarenhet av Rhinoceros 8. Jag har även använt Rhino 7 vid tillfälle." },
-
-{ title:" ", sub:"Python IDE", img:"images/images (5).png", hover:"Spyder", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:" ", sub:"Webb", img:"images/images (4).png", hover:"HTML", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:"Python", sub:"Programmering", img:"images/Python-logo-notext.svg.png", hover:"Python", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:"CapCut", sub:"Video", img:"images/image (1).png", hover:"CapCut", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:" ", sub:"Video", img:"images/shotcut-logo-640x640.png", hover:"Shotcut", body:" Videoredigeringskunskaper." },
-
-{ title:"Adobe Illustrator", sub:"Grafik", img:"images/images (7).png", hover:"Illustrator", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:"Adobe Photoshop", sub:"Bild", img:"images/image.png", hover:"Photoshop", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:"Adobe InDesign", sub:"Layout", img:"images/images (3).png", hover:"InDesign", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:"Adobe After Effects", sub:"Video/FX", img:"images/Adobe_After_Effects_CC_2026_icon.svg.png", hover:"After Effects", body:"Vid förfrågan kan arbetsprov ges." },
-
-{ title:"Affinity Photo", sub:"Bild", img:"images/Affinity_Photo_icon.png", hover:"Affinity Photo", body:"Vid förfrågan kan arbetsprov ges." },
-{ title:"Affinity Designer", sub:"Grafik", img:"images/Affinity_Designer_V2_icon.svg.png", hover:"Affinity Designer", body:" Stor erfarenhet av Affinity Designer." },
-{ title:"Affinity Publisher", sub:"Layout", img:"images/Affinity_Publisher_V2_icon.svg.png", hover:"Affinity Publisher", body:"Under arkitektutbildningen på KTH har jag använt mig av Affinity-programmen: Designer, Publisher och Photo." },
-
-{ title:" ", sub:"3D", img:"images/blender_logo_socket.png", hover:"Blender", body:"Jag lär mig just nu rendering i Blender, Twin Motion, D5, med flera program." },
-{ title:" ", sub:"3D / Rendering", img:"images/Twinmotion_Logo_Vertical_Black.webp", hover:"Twinmotion", body:"Jag lär mig just nu rendering i Blender, Twin Motion, D5, med flera program." },
-
-{ title:"TVPaint", sub:"Animation", img:"images/images (3).jpg", hover:"TVPaint", body:"" },
-{ title:" ", sub:"Design", img:"images/0x0.png", hover:"Canva", body:"Stor erfarenhet av programmet Canva." },
-
-{ title:"Microsoft PowerPoint", sub:"Presentation", img:"images/Microsoft_Office_PowerPoint_(2019–2025).svg.png", hover:"PowerPoint", body:"Stor erfarenhet av programmet Powerpoint." },
-{ title:"Microsoft Word", sub:"Text", img:"images/Microsoft_Office_Word_(2019–2025).svg.png", hover:"Word", body:"Erfarenhet av programmet Word." }
-];
-
-const workItems = [
-{ title:" ", sub:"Arbetsgivare", img:"images/display-image.png", hover:"Folkoperan", body:" Ansikte utåt för Madame Butterfly-produktionen." },
-{ title:" ", sub:"Arbetsgivare", img:"images/7Bf-kNum.jpg", hover:"SVT", body:"Demografiska undersökningar i sammanhang med valet." },
-{ title:" ", sub:"Arbetsgivare", img:"images/d2067298-a21f-45da-b6bb-695f951dfd0a.jpg", hover:"Sveriges Radio", body:"Röstskådespelare." },
-
-{ title:" ", sub:"Arbetsgivare", img:"images/Stockholm_logo.png", hover:"Stockholms stad", body:" Socialt arbete." },
-{ title:" ", sub:"Arbetsgivare", img:"images/Svenska-kyrkan-1.png", hover:"Svenska kyrkan", body:"Anställd på Botkyrka Kyrka, Tumba." },
-{ title:" ", sub:"Arbetsgivare", img:"images/plantagen_logo_800x800.jpg", hover:"Plantagen", body:"Sälj, administration." },
-{ title:" ", sub:"Arbetsgivare", img:"images/systembolaget_logo.jpg", hover:"Systembolaget", body:"Sälj, kundkontakt, grupparbete." },
-{ title:"Silvosa Hermanos", sub:"Arbetsgivare", img:"images/silvosa_hermanos_sl_logo.jpg", hover:"Silvosa Hermanos", body:"Sälj, kundkontakt, grupparbete. Jag hade ansvar för utomhusavdelningen i växthandeln." },
-{ title:" ", sub:"Arbetsgivare", img:"images/New-Atos-logo-blue-RGB.jpg", hover:"Atos", body:"IT-Support." },
-
-{ title:"Svenska barnidrottsföreningen ", sub:"Arbetsgivare", img:"images/SBIF_1.png", hover:"SBIF", body:"Danspedagog." },
-{ title:"Allcare Omsorg", sub:"Arbetsgivare", img:"images/Hjarta-Lila-300x220.png", hover:"Allcare Omsorg", body:"Boendestöd." }
-];
-
-
-
-  // ---- modal ----
-  const modal = document.getElementById("modal");
-  const closeBtn = document.getElementById("closeBtn");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalSub = document.getElementById("modalSub");
-  const modalBody = document.getElementById("modalBody");
-
-  function openModal(item){
-    modalTitle.textContent = item.title;
-    modalSub.textContent = item.sub || "";
-    modalBody.textContent = item.body || "";
-    modal.style.display = "flex";
-  }
-  function closeModal(){
-    modal.style.display = "none";
-  }
-
-  function renderGrid(items, gridId){
-    const grid = document.getElementById(gridId);
-    items.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <img src="${item.img}" alt="${item.title}">
-        <div class="label">${item.title}</div>
-        <div class="tooltip">${item.hover || ""}</div>
-      `;
-      card.addEventListener("click", () => openModal(item));
-      grid.appendChild(card);
-    });
-  }
-
-  renderGrid(educationItems, "gridEducation");
-  renderGrid(toolItems, "gridTools");
-  renderGrid(workItems, "gridWork");
-
-  closeBtn.addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
-
-
 const downloadModal = document.getElementById("downloadModal");
 
 function showDownload(){
@@ -346,8 +220,6 @@ downloadModal.addEventListener("click", (e) => {
   if (e.target === downloadModal) closeDownload();
 });
 
-
-  
 const contactModal = document.getElementById("contactModal");
 
 function showContact(){
@@ -361,50 +233,7 @@ function closeContact(){
 contactModal.addEventListener("click", (e) => {
   if (e.target === contactModal) closeContact();
 });
-
-
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
