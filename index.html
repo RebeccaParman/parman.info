@@ -157,6 +157,7 @@
   
   <div style="display:flex; gap:10px; align-items:center;">
     <a class="download-btn" onclick="showDownload()">Ladda ned CV</a>
+    <a class="download-btn" onclick="showContact()">Kontakt</a>
   </div>
 
 </div>
@@ -204,6 +205,21 @@
         📝 Ladda ned Word
       </a>
     </div>
+
+    <!-- Contact Modal -->
+<div class="modal" id="contactModal">
+  <div class="modal-content" style="text-align:center;">
+    <h2>Kontakt</h2>
+    <p class="muted">
+      📧 parman.rebecca@hotmail.com<br>
+      📞 070-437 64 16<br>
+      📍 Stockholm, Sverige
+    </p>
+
+    <button class="close" onclick="closeContact()">Stäng</button>
+  </div>
+</div>
+
 
     <button class="close" style="margin-top:20px;" onclick="closeDownload()">Stäng</button>
   </div>
@@ -331,11 +347,27 @@ downloadModal.addEventListener("click", (e) => {
 });
 
 
+  
+const contactModal = document.getElementById("contactModal");
+
+function showContact(){
+  contactModal.style.display = "flex";
+}
+
+function closeContact(){
+  contactModal.style.display = "none";
+}
+
+contactModal.addEventListener("click", (e) => {
+  if (e.target === contactModal) closeContact();
+});
+
 
 </script>
 
 </body>
 </html>
+
 
 
 
