@@ -279,13 +279,11 @@ const workItems = [
   // ---- modal ----
   const modal = document.getElementById("modal");
   const closeBtn = document.getElementById("closeBtn");
-  const modalLogo = document.getElementById("modalLogo");
   const modalTitle = document.getElementById("modalTitle");
   const modalSub = document.getElementById("modalSub");
   const modalBody = document.getElementById("modalBody");
 
   function openModal(item){
-    modalLogo.alt = item.title;
     modalTitle.textContent = item.title;
     modalSub.textContent = item.sub || "";
     modalBody.textContent = item.body || "";
@@ -339,6 +337,7 @@ downloadModal.addEventListener("click", (e) => {
 
 </body>
 </html>
+
 
 
 
